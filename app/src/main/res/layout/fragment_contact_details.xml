@@ -6,14 +6,17 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    android:weightSum="4">
 
+    <!-- Top Navigation Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="end">
 
+        <!-- Back Button -->
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="32dp"
@@ -21,11 +24,13 @@
             android:src="@drawable/ic_outline_arrow_back_24"
             android:contentDescription="@string/back" />
 
+        <!-- Middle Space -->
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
+        <!-- Favourite Contact Button -->
         <ImageView
             android:id="@+id/ivFavourite"
             android:layout_width="32dp"
@@ -33,10 +38,12 @@
             android:src="@drawable/ic_outline_star_24"
             android:contentDescription="@string/favourite" />
 
+        <!-- Space -->
         <View
             android:layout_width="16dp"
             android:layout_height="match_parent" />
 
+        <!-- Edit Contact Button -->
         <ImageView
             android:id="@+id/ivEdit"
             android:layout_width="32dp"
@@ -44,23 +51,28 @@
             android:src="@drawable/ic_outline_ink_pen_24"
             android:contentDescription="@string/edit" />
 
+        <!-- Space -->
         <View
             android:layout_width="16dp"
             android:layout_height="match_parent" />
 
+        <!-- Delete Contact Button -->
         <ImageView
             android:id="@+id/ivDelete"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_outline_delete_forever_24"
             android:contentDescription="@string/edit" />
+
     </LinearLayout>
 
+    <!-- Vertical Space -->
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <!-- Contact Profile Picture -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivProfile"
         android:layout_width="100dp"
@@ -70,8 +82,9 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
         app:strokeColor="?attr/colorOutline"
         app:strokeWidth="1dp"
-        android:contentDescription="@string/profile_picture"/>
+        android:contentDescription="@string/contact_profile_picture"/>
 
+    <!-- Contact Name (First Name and Last Name) -->
     <TextView
         android:id="@+id/tvContactName"
         android:layout_width="wrap_content"
@@ -79,13 +92,18 @@
         android:layout_marginTop="16dp"
         android:text="@string/firstname_lastname"
         android:textStyle="bold"
-        android:textSize="24sp" />
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textSize="24sp"
+        android:gravity="center"/>
 
+    <!-- Vertical Space -->
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="0.5"/>
 
+    <!-- Contact Actions -->
     <LinearLayout
         android:id="@+id/llActions"
         android:layout_width="match_parent"
@@ -94,7 +112,7 @@
         android:gravity="center"
         android:weightSum="2">
 
-        <!-- Call -->
+        <!-- Call Contact Button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -122,8 +140,10 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/call"
                 android:textSize="12sp"/>
+
         </LinearLayout>
 
+        <!-- Message Contact Button -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -151,21 +171,19 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/message"
                 android:textSize="12sp"/>
+
         </LinearLayout>
 
     </LinearLayout>
 
+    <!-- Horizontal Black Line -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:background="?attr/colorOutline" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
+    <!-- Contact Phone Number -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -183,7 +201,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:padding="16dp">
-            <!-- Left Side: Phone icon + number -->
+
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -191,39 +209,168 @@
                 android:contentDescription="@string/call"
                 app:tint="?attr/colorOnSurfaceVariant" />
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
-
-                <TextView
-                    android:id="@+id/tvPhoneNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+1 512-555-2393"
-                    android:textColor="?attr/colorOnSurface"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/tvPhoneLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mobile"
-                    android:textColor="?attr/colorOnSurfaceVariant"
-                    android:textSize="12sp"/>
-            </LinearLayout>
+                android:text="@string/xxx_xxxxxxx"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Contact Birthday -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_cake_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Horizontal Black Line -->
     <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/colorOutline" />
+
+    <!-- Created At -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_create_new_folder_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvCreatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xx_xx_on_dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Updated At -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_update_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvUpdatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xx_xx_on_dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
 

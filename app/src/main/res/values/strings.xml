@@ -10,9 +10,12 @@
     <string name="call">Call</string>
     <string name="message">Message</string>
     <string name="add_contact">Add Contact</string>
-    <string name="profile_picture">Profile Picture</string>
+    <string name="contact_profile_picture">Contact Profile Picture</string>
     <string name="firstname_lastname">FirstName LastName</string>
     <string name="edit">Edit</string>
     <string name="favourite">Favourite</string>
     <string name="back">Back</string>
+    <string name="xxx_xxxxxxx">XXX-XXXXXXX</string>
+    <string name="dd_mm_yyyy">DD-MM-YYYY</string>
+    <string name="xx_xx_on_dd_mm_yyyy">XX:XX on DD-MM-YYYY</string>
 </resources>
