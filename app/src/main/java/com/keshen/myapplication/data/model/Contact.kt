@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Parcelize
 @Entity(tableName = "contacts")
@@ -19,4 +20,16 @@ data class Contact(
     val birthday: LocalDate? = null,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     val updatedAt: LocalDateTime = LocalDateTime.now()
-): Parcelable
+): Parcelable {
+    val fullName: String
+        get() = listOfNotNull(firstName, lastName).joinToString(" ")
+
+    val formattedBirthday: String
+        get() = birthday?.format(DateTimeFormatter.ofPattern("dd MMM yyyy")) ?: " "
+
+    val formattedCreatedAt: String
+        get() = createdAt.format(DateTimeFormatter.ofPattern("HH:mm, dd MMM yyyy"))
+
+    val formattedUpdatedAt: String
+        get() = updatedAt.format(DateTimeFormatter.ofPattern("HH:mm, dd MMM yyyy"))
+}

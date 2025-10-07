@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.keshen.myapplication.databinding.FragmentContactsBinding
 import com.keshen.myapplication.ui.adapter.ContactAdapter
+import com.keshen.myapplication.ui.home.HomeFragmentDirections
 import com.keshen.myapplication.ui.home.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -31,6 +34,7 @@ class ContactsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupAdapter()
 
         lifecycleScope.launch {
             viewModel.contacts.collect {
@@ -39,7 +43,17 @@ class ContactsFragment: Fragment() {
                 } else {
                     binding.llEmptyContactsPlaceholder.visibility = View.VISIBLE
                 }
+                adapter.setContacts(it)
             }
         }
+    }
+
+    fun setupAdapter() {
+        adapter = ContactAdapter(emptyList()) {
+            val action = HomeFragmentDirections.actionHomeFragmentToContactDetailsFragment(it)
+            findNavController().navigate(action)
+        }
+        binding.rvContacts.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvContacts.adapter = adapter
     }
 }

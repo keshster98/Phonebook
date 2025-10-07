@@ -231,6 +231,7 @@
 
     <!-- Contact Birthday -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcwBirthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
@@ -329,6 +330,7 @@
 
     <!-- Updated At -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcwUpdatedAt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
