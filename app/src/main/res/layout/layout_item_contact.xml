@@ -72,7 +72,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_baseline_sms_24"
-            android:contentDescription="@string/text" />
+            android:contentDescription="Text" />
 
     </LinearLayout>
 

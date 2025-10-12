@@ -16,7 +16,6 @@ import com.keshen.myapplication.ui.home.HomeViewModel
 import kotlinx.coroutines.launch
 
 class ContactsFragment: Fragment() {
-
     private val viewModel: HomeViewModel by viewModels(
         ownerProducer = { requireParentFragment() },
         factoryProducer = { HomeViewModel.Factory }
@@ -39,9 +38,9 @@ class ContactsFragment: Fragment() {
         lifecycleScope.launch {
             viewModel.contacts.collect {
                 if (viewModel.contactsSize()) {
-                    binding.llEmptyContactsPlaceholder.visibility = View.GONE
-                } else {
                     binding.llEmptyContactsPlaceholder.visibility = View.VISIBLE
+                } else {
+                    binding.llEmptyContactsPlaceholder.visibility = View.GONE
                 }
                 adapter.setContacts(it)
             }

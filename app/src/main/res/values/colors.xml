@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Case Study Colors-->
+    <color name="main_bg">#E9ECF5</color>
+    <color name="cs_blue">#00B3FE</color>
+    <color name="cs_red">#CD0714</color>
+    <color name="cs_grey">#44000000</color>
+
+    <!--Colors-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#A2A2A2</color>
+
+    <!--Border Transparent-->
+    <color name="g_border">#AAA2A2A2</color>
 </resources>

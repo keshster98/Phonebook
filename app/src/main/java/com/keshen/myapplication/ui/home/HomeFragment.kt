@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.keshen.myapplication.databinding.FragmentHomeBinding
 import com.keshen.myapplication.ui.home.nested.ContactsFragment
 import com.keshen.myapplication.ui.home.nested.HighlightsFragment
 import com.keshen.myapplication.ui.home.nested.SettingsFragment
 import com.keshen.myapplication.ui.home.nested.TabsAdapter
+import androidx.core.view.get
+import com.keshen.myapplication.R
 
 class HomeFragment: Fragment() {
 
@@ -36,5 +39,21 @@ class HomeFragment: Fragment() {
         )
 
         binding.viewPager.adapter = adapter
+
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.nvBottomNavbar.menu[position].isChecked = true
+            }
+        })
+
+        binding.nvBottomNavbar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bottomNavbarContacts -> binding.viewPager.currentItem = 0
+                R.id.bottomNavbarHighlights -> binding.viewPager.currentItem = 1
+                R.id.bottomNavbarSettings -> binding.viewPager.currentItem = 2
+            }
+            true
+        }
     }
 }

@@ -16,11 +16,7 @@ class HomeViewModel(
     val contacts = MutableStateFlow<List<Contact>>(emptyList())
 
     fun contactsSize(): Boolean {
-        if (contacts.value.isEmpty()) {
-            return true
-        } else {
-            return false
-        }
+        return contacts.value.isEmpty()
     }
 
     companion object {
