@@ -1,5 +1,7 @@
 package com.keshen.myapplication.ui.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +54,21 @@ class ContactAdapter (
                         crossfade(true)
                     }
                     ivPlaceholder.visibility = View.GONE
+                }
+
+                ivCall.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_DIAL).apply {
+                        data = "tel:${item.phoneNumber}".toUri()
+                    }
+                    it.context.startActivity(intent)
+                }
+
+                ivText.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW).apply {
+                        data = "sms:${item.phoneNumber}".toUri()
+                        putExtra("sms_body", "Hi, ${item.firstName}.") // prefilled message
+                    }
+                    it.context.startActivity(intent)
                 }
 
                 llContact.setOnClickListener {

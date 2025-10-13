@@ -1,5 +1,6 @@
 package com.keshen.myapplication.ui.details
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -60,6 +61,21 @@ class ContactDetailsFragment: Fragment() {
                         placeholder(R.drawable.ic_baseline_person_24)
                         error(R.drawable.ic_baseline_person_24)
                     }
+                }
+
+                btnCall.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_DIAL).apply {
+                        data = "tel:${contact.phoneNumber}".toUri()
+                    }
+                    it.context.startActivity(intent)
+                }
+
+                btnMessage.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW).apply {
+                        data = "sms:${contact.phoneNumber}".toUri()
+                        putExtra("sms_body", "Hi, ${contact.firstName}.") // prefilled message
+                    }
+                    it.context.startActivity(intent)
                 }
 
                 ivEdit.setOnClickListener {
