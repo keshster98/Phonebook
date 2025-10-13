@@ -77,7 +77,7 @@
         android:id="@+id/ivProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_baseline_person_24"
+        android:src="@drawable/ic_outline_person_24"
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
         app:strokeColor="?attr/colorOutline"

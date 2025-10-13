@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_contactDetailsFragment"
             app:destination="@id/contactDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactDetailsFragment"
@@ -22,5 +25,43 @@
             android:name="contact"
             app:argType="com.keshen.myapplication.data.model.Contact"
             app:nullable="false" />
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_editContactFragment"
+            app:destination="@id/editContactFragment" />
+        <action
+            android:id="@+id/action_contactDetailsFragment_to_confirmationDeleteFragment"
+            app:destination="@id/confirmationDeleteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editContactFragment"
+        android:name="com.keshen.myapplication.ui.manage.EditContactFragment"
+        android:label="EditContactFragment" >
+        <argument
+            android:name="contactId"
+            app:argType="integer"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_editContactFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.keshen.myapplication.ui.manage.AddContactFragment"
+        android:label="AddContactFragment" >
+        <action
+            android:id="@+id/action_addContactFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmationDeleteFragment"
+        android:name="com.keshen.myapplication.ui.confirmationDelete.ConfirmationDeleteFragment"
+        android:label="ConfirmationDeleteFragment"
+        tools:layout="@layout/fragment_confirmation_delete">
+        <argument
+            android:name="contactId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_confirmationDeleteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </dialog>
 </navigation>

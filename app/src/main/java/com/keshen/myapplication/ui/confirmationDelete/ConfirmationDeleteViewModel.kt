@@ -1,27 +1,31 @@
-package com.keshen.myapplication.ui.home
+package com.keshen.myapplication.ui.confirmationDelete
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.keshen.myapplication.MyApp
-import com.keshen.myapplication.data.model.Contact
 import com.keshen.myapplication.data.repo.ContactRepo
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class HomeViewModel(
+class ConfirmationDeleteViewModel(
     private val repo: ContactRepo
 ): ViewModel() {
 
-    val contacts: Flow<List<Contact>> = repo.getAllContacts()
-    fun contactsSize(list: List<Contact>): Boolean = list.isEmpty()
+    fun delete(contactId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.deleteContact(contactId)
+        }
+    }
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val myRepository = (this[APPLICATION_KEY] as MyApp).repo
-                HomeViewModel(repo = myRepository)
+                ConfirmationDeleteViewModel(repo = myRepository)
             }
         }
     }

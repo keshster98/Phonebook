@@ -1,10 +1,13 @@
 package com.keshen.myapplication.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.keshen.myapplication.data.model.Contact
 import com.keshen.myapplication.databinding.LayoutItemContactBinding
+import coil.load
+import androidx.core.net.toUri
 
 class ContactAdapter (
     private var contacts: List<Contact>,
@@ -40,6 +43,17 @@ class ContactAdapter (
             binding.run {
                 tvFirstName.text = item.firstName
                 tvLastName.text = item.lastName
+
+                if (item.profilePhotoUri.isNullOrEmpty()) {
+                    ivProfile.setImageDrawable(null)
+                    ivPlaceholder.visibility = View.VISIBLE
+                } else {
+                    ivProfile.load(item.profilePhotoUri.toUri()) {
+                        crossfade(true)
+                    }
+                    ivPlaceholder.visibility = View.GONE
+                }
+
                 llContact.setOnClickListener {
                     onClick(item)
                 }

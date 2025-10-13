@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 @Parcelize
 @Entity(tableName = "contacts")
@@ -15,7 +16,7 @@ data class Contact(
     val id: Int? = null,
     val profilePhotoUri: String? = null,
     val firstName: String,
-    val lastName: String? = null,
+    val lastName: String,
     val phoneNumber: String,
     val birthday: LocalDate? = null,
     val createdAt: LocalDateTime = LocalDateTime.now(),
@@ -28,8 +29,11 @@ data class Contact(
         get() = birthday?.format(DateTimeFormatter.ofPattern("dd MMM yyyy")) ?: " "
 
     val formattedCreatedAt: String
-        get() = createdAt.format(DateTimeFormatter.ofPattern("HH:mm, dd MMM yyyy"))
+        get() = createdAt.format(DateTimeFormatter.ofPattern("hh:mm a, dd MMM yyyy"))
 
     val formattedUpdatedAt: String
-        get() = updatedAt.format(DateTimeFormatter.ofPattern("HH:mm, dd MMM yyyy"))
+        get() = updatedAt.format(DateTimeFormatter.ofPattern("hh:mm a, dd MMM yyyy"))
+
+    val isRecentlyCreated: Boolean
+        get() = updatedAt.truncatedTo(ChronoUnit.SECONDS) == createdAt.truncatedTo(ChronoUnit.SECONDS)
 }

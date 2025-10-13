@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import coil.load
+import com.keshen.myapplication.R
 import com.keshen.myapplication.databinding.FragmentContactDetailsBinding
 import kotlinx.coroutines.launch
 import kotlin.getValue
+import androidx.core.net.toUri
+import androidx.navigation.fragment.findNavController
 
 class ContactDetailsFragment: Fragment() {
     private lateinit var binding: FragmentContactDetailsBinding
@@ -42,10 +46,30 @@ class ContactDetailsFragment: Fragment() {
                     mcwBirthday.visibility = View.VISIBLE
                 }
 
-                if (contact.updatedAt == contact.createdAt) {
+                if (contact.isRecentlyCreated) {
                     mcwUpdatedAt.visibility = View.GONE
                 } else {
                     mcwUpdatedAt.visibility = View.VISIBLE
+                }
+
+                if (contact.profilePhotoUri.isNullOrEmpty()) {
+                    ivProfile.setImageResource(R.drawable.ic_baseline_person_24)
+                } else {
+                    ivProfile.load(contact.profilePhotoUri.toUri()) {
+                        crossfade(true)
+                        placeholder(R.drawable.ic_baseline_person_24)
+                        error(R.drawable.ic_baseline_person_24)
+                    }
+                }
+
+                ivEdit.setOnClickListener {
+                    val action = ContactDetailsFragmentDirections.actionContactDetailsFragmentToEditContactFragment(contact.id!!)
+                    findNavController().navigate(action)
+                }
+
+                ivDelete.setOnClickListener {
+                    val action = ContactDetailsFragmentDirections.actionContactDetailsFragmentToConfirmationDeleteFragment(contact.id!!)
+                    findNavController().navigate(action)
                 }
             }
         }

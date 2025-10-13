@@ -10,6 +10,7 @@
     <string name="call">Call</string>
     <string name="message">Message</string>
     <string name="add_contact">Add Contact</string>
+    <string name="update_contact">Update Contact</string>
     <string name="contact_profile_picture">Contact Profile Picture</string>
     <string name="firstname_lastname">FirstName LastName</string>
     <string name="edit">Edit</string>
@@ -18,4 +19,17 @@
     <string name="xxx_xxxxxxx">XXX-XXXXXXX</string>
     <string name="dd_mm_yyyy">DD-MM-YYYY</string>
     <string name="xx_xx_on_dd_mm_yyyy">XX:XX on DD-MM-YYYY</string>
+    <string name="close">Close</string>
+    <string name="base_manage">Base Manage</string>
+    <string name="save_contact">Save Contact</string>
+    <string name="save">Save</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="birthday">Birthday</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="deleting_this_contact_is_irreversible">Deleting this contact is irreversible.</string>
+    <string name="once_this_contact_is_deleted_it_cannot_be_retrieved">Once this contact is deleted, it cannot be retrieved.</string>
 </resources>

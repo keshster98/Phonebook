@@ -36,14 +36,19 @@ class ContactsFragment: Fragment() {
         setupAdapter()
 
         lifecycleScope.launch {
-            viewModel.contacts.collect {
-                if (viewModel.contactsSize()) {
+            viewModel.contacts.collect { list ->
+                if (viewModel.contactsSize(list)) {
                     binding.llEmptyContactsPlaceholder.visibility = View.VISIBLE
                 } else {
                     binding.llEmptyContactsPlaceholder.visibility = View.GONE
                 }
-                adapter.setContacts(it)
+                adapter.setContacts(list)
             }
+        }
+
+        binding.fabAdd.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToAddContactFragment()
+            findNavController().navigate(action)
         }
     }
 
