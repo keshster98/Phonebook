@@ -13,6 +13,7 @@ import com.keshen.myapplication.ui.home.nested.HighlightsFragment
 import com.keshen.myapplication.ui.home.nested.SettingsFragment
 import com.keshen.myapplication.ui.home.nested.TabsAdapter
 import androidx.core.view.get
+import androidx.fragment.app.setFragmentResultListener
 import com.keshen.myapplication.R
 
 class HomeFragment: Fragment() {
@@ -32,6 +33,12 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setFragmentResultListener("manage_sort") { _, bundle ->
+            val s1 = bundle.getInt("sort1")
+            val s2 = bundle.getInt("sort2")
+            viewModel.updateSortStates(s1, s2)
+        }
 
         val adapter = TabsAdapter(
             fragments = listOf(ContactsFragment(), HighlightsFragment(), SettingsFragment()),

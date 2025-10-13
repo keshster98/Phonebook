@@ -34,4 +34,12 @@
     <string name="once_this_contact_is_deleted_it_cannot_be_retrieved">Once this contact is deleted, it cannot be retrieved.</string>
     <string name="no_birthdays_today">No birthdays today</string>
     <string name="today_s_birthdays">Today\'s Birthdays</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_order">Sort Order</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="sort_by">Sort By</string>
+    <string name="done">Done</string>
+    <string name="backup_contacts">Backup Contacts (.csv)</string>
 </resources>

@@ -65,7 +65,11 @@
                         app:cornerRadius="@dimen/space_xs"
                         android:text="@string/delete" />
                 </LinearLayout>
+
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
+
 </layout>

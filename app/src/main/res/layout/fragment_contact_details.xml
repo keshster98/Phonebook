@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:layout_margin="16dp"
+    android:layout_margin="@dimen/space_xl"
     android:weightSum="4">
 
     <!-- Top Navigation Bar -->
@@ -19,48 +19,35 @@
         <!-- Back Button -->
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
             android:src="@drawable/ic_outline_arrow_back_24"
             android:contentDescription="@string/back" />
 
         <!-- Middle Space -->
         <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/space_nil"
+            android:layout_height="@dimen/space_nil"
             android:layout_weight="1"/>
-
-        <!-- Favourite Contact Button -->
-        <ImageView
-            android:id="@+id/ivFavourite"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_outline_star_24"
-            android:contentDescription="@string/favourite" />
-
-        <!-- Space -->
-        <View
-            android:layout_width="16dp"
-            android:layout_height="match_parent" />
 
         <!-- Edit Contact Button -->
         <ImageView
             android:id="@+id/ivEdit"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
             android:src="@drawable/ic_outline_ink_pen_24"
             android:contentDescription="@string/edit" />
 
         <!-- Space -->
         <View
-            android:layout_width="16dp"
+            android:layout_width="@dimen/space_xl"
             android:layout_height="match_parent" />
 
         <!-- Delete Contact Button -->
         <ImageView
             android:id="@+id/ivDelete"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
             android:src="@drawable/ic_outline_delete_forever_24"
             android:contentDescription="@string/edit" />
 
@@ -68,20 +55,20 @@
 
     <!-- Vertical Space -->
     <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/space_nil"
+        android:layout_height="@dimen/space_nil"
         android:layout_weight="1"/>
 
     <!-- Contact Profile Picture -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/space_xxxxxxxl"
+        android:layout_height="@dimen/space_xxxxxxxl"
         android:src="@drawable/ic_outline_person_24"
         android:scaleType="centerCrop"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
         app:strokeColor="?attr/colorOutline"
-        app:strokeWidth="1dp"
+        app:strokeWidth="@dimen/space_xxxxxs"
         android:contentDescription="@string/contact_profile_picture"/>
 
     <!-- Contact Name (First Name and Last Name) -->
@@ -89,18 +76,18 @@
         android:id="@+id/tvContactName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/space_xl"
         android:text="@string/firstname_lastname"
         android:textStyle="bold"
         android:ellipsize="end"
         android:maxLines="3"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_xxxl"
         android:gravity="center"/>
 
     <!-- Vertical Space -->
     <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/space_nil"
+        android:layout_height="@dimen/space_nil"
         android:layout_weight="0.5"/>
 
     <!-- Contact Actions -->

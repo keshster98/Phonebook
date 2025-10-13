@@ -51,11 +51,11 @@ class HighlightsFragment: Fragment() {
 
     fun setupAdapter() {
         adapter = ContactAdapter(emptyList(), onClick = {
-            val action = HomeFragmentDirections.actionHomeFragmentToContactDetailsFragment(contact = it)
+            val action =
+                HomeFragmentDirections.actionHomeFragmentToContactDetailsFragment(contact = it)
             findNavController().navigate(action)
         }, isBirthdayList = true)
         binding.rvHighlights.layoutManager = LinearLayoutManager(requireContext())
         binding.rvHighlights.adapter = adapter
     }
-
 }

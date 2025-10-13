@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 import kotlin.getValue
 import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
-import com.keshen.myapplication.ui.home.HomeFragmentDirections
 
 class ContactDetailsFragment: Fragment() {
     private lateinit var binding: FragmentContactDetailsBinding
@@ -55,12 +54,12 @@ class ContactDetailsFragment: Fragment() {
                 }
 
                 if (contact.profilePhotoUri.isNullOrEmpty()) {
-                    ivProfile.setImageResource(R.drawable.ic_baseline_person_24)
+                    ivProfile.setImageResource(R.drawable.ic_outline_person_24)
                 } else {
                     ivProfile.load(contact.profilePhotoUri.toUri()) {
                         crossfade(true)
-                        placeholder(R.drawable.ic_baseline_person_24)
-                        error(R.drawable.ic_baseline_person_24)
+                        placeholder(R.drawable.ic_outline_person_24)
+                        error(R.drawable.ic_outline_person_24)
                     }
                 }
 

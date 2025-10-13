@@ -48,11 +48,24 @@ class ContactAdapter (
                 tvLastName.text = item.lastName
 
                 if (item.profilePhotoUri.isNullOrEmpty()) {
+                    // Force clear Coil’s cached image to prevent ghost overlay
+                    ivProfile.load(null as Uri?) {
+                        placeholder(android.R.color.transparent)
+                        error(android.R.color.transparent)
+                        // Disable caching entirely for this load
+                        memoryCachePolicy(coil.request.CachePolicy.DISABLED)
+                        diskCachePolicy(coil.request.CachePolicy.DISABLED)
+                    }
                     ivProfile.setImageDrawable(null)
                     ivPlaceholder.visibility = View.VISIBLE
                 } else {
                     ivProfile.load(item.profilePhotoUri.toUri()) {
                         crossfade(true)
+                        placeholder(android.R.color.transparent)
+                        error(android.R.color.transparent)
+                        // Prevent Coil from reusing outdated cached version
+                        memoryCachePolicy(coil.request.CachePolicy.DISABLED)
+                        diskCachePolicy(coil.request.CachePolicy.ENABLED)
                     }
                     ivPlaceholder.visibility = View.GONE
                 }

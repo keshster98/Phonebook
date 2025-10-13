@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.keshen.myapplication.databinding.FragmentSettingsBinding
 import com.keshen.myapplication.ui.home.HomeViewModel
@@ -24,5 +25,25 @@ class SettingsFragment: Fragment() {
     ): View? {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cardBackup.setOnClickListener {
+            viewModel.backupContactsAsCsv { path ->
+                requireActivity().runOnUiThread {
+                    when (path) {
+                        "EMPTY" -> Toast.makeText(requireContext(),
+                            "No contacts to back up", Toast.LENGTH_SHORT).show()
+                        else -> Toast.makeText(requireContext(),
+                            "Backup saved to Downloads:\n$path", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
