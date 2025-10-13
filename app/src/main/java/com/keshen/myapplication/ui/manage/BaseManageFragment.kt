@@ -18,6 +18,7 @@ import java.time.LocalDate
 import android.net.Uri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
+import com.keshen.myapplication.ui.home.HomeFragmentDirections
 
 abstract class BaseManageFragment : Fragment() {
     protected lateinit var binding: FragmentBaseManageBinding
@@ -51,7 +52,6 @@ abstract class BaseManageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvTitle.text = getManageContactPageTitle()
-
 
         binding.ivProfile.setOnClickListener {
             pickImageLauncher.launch(arrayOf("image/*"))

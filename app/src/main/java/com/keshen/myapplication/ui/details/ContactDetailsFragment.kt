@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 import kotlin.getValue
 import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
+import com.keshen.myapplication.ui.home.HomeFragmentDirections
 
 class ContactDetailsFragment: Fragment() {
     private lateinit var binding: FragmentContactDetailsBinding
@@ -61,6 +62,10 @@ class ContactDetailsFragment: Fragment() {
                         placeholder(R.drawable.ic_baseline_person_24)
                         error(R.drawable.ic_baseline_person_24)
                     }
+                }
+
+                ivBack.setOnClickListener {
+                    findNavController().popBackStack(R.id.homeFragment, false)
                 }
 
                 btnCall.setOnClickListener {

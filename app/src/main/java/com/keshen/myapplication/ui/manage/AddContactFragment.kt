@@ -3,6 +3,7 @@ package com.keshen.myapplication.ui.manage
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.keshen.myapplication.R
 import kotlin.getValue
 
@@ -17,5 +18,10 @@ class AddContactFragment: BaseManageFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+
+        binding.ivClose.setOnClickListener {
+            val action = AddContactFragmentDirections.actionAddContactFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
     }
 }
