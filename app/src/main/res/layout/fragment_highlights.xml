@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.nested.HighlightsFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvHighlightsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/space_xs">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="72.5dp"
+            android:gravity="center"
+            android:text="@string/today_s_birthdays"
+            android:textSize="@dimen/text_xxl"
+            android:paddingHorizontal="@dimen/space_xl" />
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_nil"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHighlights"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="120dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/layout_item_contact" />
+
+        <!-- Empty birthday placeholder -->
+        <LinearLayout
+            android:id="@+id/llEmptyBirthdayPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Empty contact image -->
+            <ImageView
+                android:id="@+id/empty_birthday_icon"
+                android:layout_width="@dimen/space_xxxxxxl"
+                android:layout_height="@dimen/space_xxxxxxl"
+                android:contentDescription="@string/no_birthdays_today"
+                android:src="@drawable/no_birthday" />
+
+            <!-- Empty birthday text -->
+            <TextView
+                android:id="@+id/empty_birthday_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/no_birthdays_today"
+                android:textSize="@dimen/text_l" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

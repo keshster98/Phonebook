@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.home.nested.SettingsFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvHighlightsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/space_xs">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="72.5dp"
+            android:gravity="center"
+            android:text="@string/settings"
+            android:textSize="@dimen/text_xxl"
+            android:paddingHorizontal="@dimen/space_xl" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBackup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_xl"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/space_m"
+        app:cardElevation="@dimen/space_xxxs">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_xl"
+            android:text="@string/backup_contacts"
+            android:textSize="@dimen/text_xl"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.nested.ContactsFragment">
+
+    <!--Card view for the entire search and sort -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTopNavbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/space_xs">
+
+        <!-- Horizontal layout for the search bar and sort icon -->
+        <LinearLayout
+            android:id="@+id/llSearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_xl"
+            android:weightSum="10"
+            android:orientation="horizontal">
+
+            <!--Search bar -->
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="@dimen/space_nil"
+                android:layout_height="match_parent"
+                android:layout_weight="9"
+                android:hint="@string/searchbar_hint"
+                android:padding="@dimen/space_xs"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawableTint="@color/g_border"
+                android:drawablePadding="@dimen/space_xs"
+                android:background="@drawable/search_view_bg" />
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="@dimen/space_xxl"
+                android:layout_height="@dimen/space_nil"/>
+
+            <!--Sort icon -->
+            <ImageView
+                android:id="@+id/ivSort"
+                android:layout_width="@dimen/space_nil"
+                android:layout_height="@dimen/space_xxxxl"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_xxxs"
+                android:src="@drawable/ic_outline_sort_24" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- To house the contact list, empty contacts placeholder and add contact button -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_nil"
+        android:layout_weight="1">
+
+        <!-- For scrollable contact list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/space_xxxxxxxxl"
+            android:clipToPadding="false" />
+
+        <!-- Empty contact placeholder -->
+        <LinearLayout
+            android:id="@+id/llEmptyContactsPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Empty contact image -->
+            <ImageView
+                android:id="@+id/empty_icon"
+                android:layout_width="@dimen/space_xxxxxxl"
+                android:layout_height="@dimen/space_xxxxxxl"
+                android:contentDescription="@string/you_have_no_contacts_yet"
+                android:src="@drawable/ic_outline_person_off_24" />
+
+            <!-- Empty contact text -->
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_m"
+                android:text="@string/you_have_no_contacts_yet"
+                android:textSize="@dimen/text_l" />
+        </LinearLayout>
+
+        <!-- Add contact button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/space_xxxl"
+            android:layout_marginBottom="@dimen/space_xxxl"
+            android:elevation="@dimen/space_xs"
+            android:contentDescription="@string/add_contact"
+            android:src="@drawable/ic_outline_add_2_24"
+            style="@style/Widget.MaterialComponents.FloatingActionButton" />
+
+    </FrameLayout>
+
+</LinearLayout>

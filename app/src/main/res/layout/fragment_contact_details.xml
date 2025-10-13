@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_margin="@dimen/space_xl"
+    android:weightSum="4">
+
+    <!-- Top Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
+            android:src="@drawable/ic_outline_arrow_back_24"
+            android:contentDescription="@string/back" />
+
+        <!-- Middle Space -->
+        <View
+            android:layout_width="@dimen/space_nil"
+            android:layout_height="@dimen/space_nil"
+            android:layout_weight="1"/>
+
+        <!-- Edit Contact Button -->
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
+            android:src="@drawable/ic_outline_ink_pen_24"
+            android:contentDescription="@string/edit" />
+
+        <!-- Space -->
+        <View
+            android:layout_width="@dimen/space_xl"
+            android:layout_height="match_parent" />
+
+        <!-- Delete Contact Button -->
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl"
+            android:src="@drawable/ic_outline_delete_forever_24"
+            android:contentDescription="@string/edit" />
+
+    </LinearLayout>
+
+    <!-- Vertical Space -->
+    <View
+        android:layout_width="@dimen/space_nil"
+        android:layout_height="@dimen/space_nil"
+        android:layout_weight="1"/>
+
+    <!-- Contact Profile Picture -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="@dimen/space_xxxxxxxl"
+        android:layout_height="@dimen/space_xxxxxxxl"
+        android:src="@drawable/ic_outline_person_24"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="@dimen/space_xxxxxs"
+        android:contentDescription="@string/contact_profile_picture"/>
+
+    <!-- Contact Name (First Name and Last Name) -->
+    <TextView
+        android:id="@+id/tvContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xl"
+        android:text="@string/firstname_lastname"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textSize="@dimen/text_xxxl"
+        android:gravity="center"/>
+
+    <!-- Vertical Space -->
+    <View
+        android:layout_width="@dimen/space_nil"
+        android:layout_height="@dimen/space_nil"
+        android:layout_weight="0.5"/>
+
+    <!-- Contact Actions -->
+    <LinearLayout
+        android:id="@+id/llActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Call Contact Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCall"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_baseline_call_24"
+                app:iconPadding="0dp"
+                app:iconGravity="textStart"
+                android:contentDescription="@string/call" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/call"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <!-- Message Contact Button -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMessage"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_baseline_sms_24"
+                app:iconPadding="0dp"
+                app:iconGravity="textStart"
+                android:contentDescription="@string/message" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/message"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Horizontal Black Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/colorOutline" />
+
+    <!-- Contact Phone Number -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_call_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xxx_xxxxxxx"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Contact Birthday -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcwBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_cake_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Horizontal Black Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/colorOutline" />
+
+    <!-- Created At -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_create_new_folder_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvCreatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xx_xx_on_dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Updated At -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcwUpdatedAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp"
+        android:background="?attr/colorSurface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_baseline_update_24"
+                android:contentDescription="@string/call"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tvUpdatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/xx_xx_on_dd_mm_yyyy"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+
