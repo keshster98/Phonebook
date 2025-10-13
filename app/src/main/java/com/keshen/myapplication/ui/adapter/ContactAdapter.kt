@@ -13,7 +13,8 @@ import androidx.core.net.toUri
 
 class ContactAdapter (
     private var contacts: List<Contact>,
-    private var onClick: (Contact) -> Unit
+    private var onClick: (Contact) -> Unit,
+    private val isBirthdayList: Boolean = false
 ): RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -64,9 +65,14 @@ class ContactAdapter (
                 }
 
                 ivText.setOnClickListener {
+                    val message = if (isBirthdayList)
+                        "Happy Birthday, ${item.firstName}! Best wishes always and I hope you'll have a grand time with your loved ones."
+                    else
+                        "Hi, ${item.firstName}."
+
                     val intent = Intent(Intent.ACTION_VIEW).apply {
-                        data = "sms:${item.phoneNumber}".toUri()
-                        putExtra("sms_body", "Hi, ${item.firstName}.") // prefilled message
+                        data = Uri.parse("sms:${item.phoneNumber}")
+                        putExtra("sms_body", message)
                     }
                     it.context.startActivity(intent)
                 }

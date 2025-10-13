@@ -32,4 +32,6 @@
     <string name="delete">Delete</string>
     <string name="deleting_this_contact_is_irreversible">Deleting this contact is irreversible.</string>
     <string name="once_this_contact_is_deleted_it_cannot_be_retrieved">Once this contact is deleted, it cannot be retrieved.</string>
+    <string name="no_birthdays_today">No birthdays today</string>
+    <string name="today_s_birthdays">Today\'s Birthdays</string>
 </resources>

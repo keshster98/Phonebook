@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         app:titleCentered="true"
-        app:title="@string/app_name">
+        app:title="@string/app_name"
+        app:titleTextAppearance="@style/ToolbarTitleBold">
     </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- To house the nested fragments (Contacts, Highlights and Settings) -->

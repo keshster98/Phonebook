@@ -53,10 +53,10 @@ class ContactsFragment: Fragment() {
     }
 
     fun setupAdapter() {
-        adapter = ContactAdapter(emptyList()) {
-            val action = HomeFragmentDirections.actionHomeFragmentToContactDetailsFragment(it)
+        adapter = ContactAdapter(emptyList(), onClick = {
+            val action = HomeFragmentDirections.actionHomeFragmentToContactDetailsFragment(contact = it)
             findNavController().navigate(action)
-        }
+        }, isBirthdayList = false)
         binding.rvContacts.layoutManager = LinearLayoutManager(requireContext())
         binding.rvContacts.adapter = adapter
     }
