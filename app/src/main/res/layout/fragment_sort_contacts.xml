@@ -6,7 +6,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:padding="@dimen/space_xxl"
         tools:context=".ui.sort.SortContactsFragment">
 
         <androidx.cardview.widget.CardView
@@ -17,7 +16,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/space_xxxl"
+                android:padding="@dimen/space_xl"
                 android:background="@color/white">
 
                 <TextView
@@ -79,6 +78,14 @@
                         android:textSize="@dimen/text_m"
                         android:textStyle="bold"
                         android:text="@string/last_name" />
+
+                    <RadioButton
+                        android:id="@+id/rbBirthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:text="@string/birthday" />
                 </RadioGroup>
 
                 <com.google.android.material.button.MaterialButton
