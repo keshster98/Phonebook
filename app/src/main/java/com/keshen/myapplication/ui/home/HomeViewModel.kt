@@ -50,12 +50,16 @@ class HomeViewModel(
         }
         list = when (sort2) {
             0 -> { // sort by first name
-                if (sort1 == 0) list.sortedBy { it.firstName }
-                else list.sortedByDescending { it.firstName }
+                if (sort1 == 0) list.sortedBy { it.firstName.lowercase() }
+                else list.sortedByDescending { it.firstName.lowercase() }
             }
             1 -> { // sort by last name
-                if (sort1 == 0) list.sortedBy { it.lastName }
-                else list.sortedByDescending { it.lastName }
+                if (sort1 == 0) list.sortedBy { it.lastName.lowercase() }
+                else list.sortedByDescending { it.lastName.lowercase() }
+            }
+            2 -> { // sort by birthday
+                if (sort1 == 0) list.sortedWith(compareBy<Contact> { it.birthday }.thenBy { it.firstName.lowercase() })
+                else list.sortedWith(compareByDescending<Contact> { it.birthday }.thenBy { it.firstName.lowercase() })
             }
             else -> list
         }

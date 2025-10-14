@@ -42,6 +42,7 @@ class SortContactsFragment: DialogFragment() {
                 rgBy.check(when(selectedBy) {
                     0 -> R.id.rbFirstName
                     1 -> R.id.rbLastName
+                    2 -> R.id.rbBirthday
                     else -> R.id.rbFirstName
                 })
             }
@@ -60,6 +61,7 @@ class SortContactsFragment: DialogFragment() {
                 selectedBy = when(checkedId) {
                     R.id.rbFirstName -> 0
                     R.id.rbLastName -> 1
+                    R.id.rbBirthday -> 2
                     else -> 0
                 }
             }
